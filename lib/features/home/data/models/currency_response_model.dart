@@ -41,8 +41,8 @@ class CurrencyResponseModel {
         title: title ?? '',
         code: code ?? '',
         cbPrice: cbPrice ?? '',
-        nbuBuyPrice: nbuBuyPrice ?? '0',
-        nbuCellPrice: nbuCellPrice ?? '0',
+        nbuBuyPrice: nbuBuyPrice ?? '',
+        nbuCellPrice: nbuCellPrice ?? '',
         date: date ?? '',
       );
 }

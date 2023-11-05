@@ -11,8 +11,14 @@ class CurrencyUseCase extends UseCase<List<CurrencyEntity>, CurrencyParams> {
 
   @override
   Future<Either<Failure, List<CurrencyEntity>>> call(CurrencyParams params) async {
+    final List<CurrencyEntity> sortedList = [];
     final response = await repository.fetchCurrency();
-    return response;
+    for (final item in response.right) {
+      if (item.nbuCellPrice.isNotEmpty && item.nbuBuyPrice.isNotEmpty) {
+        sortedList.add(item);
+      }
+    }
+    return Right(sortedList);
   }
 }
 
